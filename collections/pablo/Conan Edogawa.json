@@ -1,0 +1,12 @@
+{
+  "id": 1,
+  "name": "Conan Edogawa",
+  "description": "Classic Conan Edogawa 1996",
+  "type": "Pop!",
+  "genre": "Anime",
+  "franchise": "Detective Conan",
+  "franchiseNumber": 1,
+  "exclusive": true,
+  "specialFeatures": "No tiene ninguna característica especial",
+  "marketValue": 100
+}

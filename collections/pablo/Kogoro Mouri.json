@@ -1,0 +1,12 @@
+{
+  "id": 4,
+  "name": "Kogoro Mouri",
+  "description": "Classic Kogoro Mouri 1996",
+  "type": "Pop!",
+  "genre": "Anime",
+  "franchise": "Detective Conan",
+  "franchiseNumber": 1,
+  "exclusive": true,
+  "specialFeatures": "No tiene ninguna característica especial",
+  "marketValue": 12
+}

@@ -1,0 +1,41 @@
+{
+  "name": "practica-10",
+  "version": "1.0.0",
+  "description": "",
+  "main": "funko.js",
+  "scripts": {
+    "test": "nyc mocha",
+    "coverage": "nyc npm test && nyc report --reporter=lcov",
+    "start": "tsc-watch --onSuccess \"node dist/ej-guion/ejercicio-3/server.js\"",
+    "doc": "typedoc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/chai": "^4.3.4",
+    "@types/mocha": "^10.0.1",
+    "@types/prompt-sync": "^4.2.0",
+    "@types/yargs": "^17.0.24",
+    "@typescript-eslint/eslint-plugin": "^5.51.0",
+    "@typescript-eslint/parser": "^5.51.0",
+    "chai": "^4.3.7",
+    "coveralls": "^3.1.1",
+    "eslint": "^8.33.0",
+    "eslint-config-prettier": "^8.6.0",
+    "mocha": "^10.2.0",
+    "nyc": "^15.1.0",
+    "prettier": "^2.8.4",
+    "ts-node": "^10.9.1",
+    "tsc-watch": "^6.0.0",
+    "typedoc": "^0.23.25"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "inquirer": "^6.5.2",
+    "lowdb": "^1.0.0",
+    "parseboolean": "^1.0.0",
+    "prompt-sync": "^4.2.0",
+    "yargs": "^17.7.1"
+  }
+}
