@@ -14,10 +14,6 @@ Al igual que en las prácticas anteriores se han incluido los flujos de trabajo 
 * Sonar-Cloud: [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ULL-ESIT-INF-DSI-2223_ull-esit-inf-dsi-22-23-prct11-http-express-funko-app-PablodlFR&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=ULL-ESIT-INF-DSI-2223_ull-esit-inf-dsi-22-23-prct11-http-express-funko-app-PablodlFR)
 ## Bibliografía
 Para la realización de esta práctica se han consultado las siguientes fuentes bibliográficas:
-* [Guion de la práctica 10](https://ull-esit-inf-dsi-2223.github.io/prct10-fs-proc-sockets-funko-app/)
-* [Yargs](https://www.npmjs.com/package/yargs)
-* [Chalk](https://www.npmjs.com/package/chalk)
-* [Events](https://nodejs.org/docs/latest-v19.x/api/events.html)
-* [fs](https://nodejs.org/docs/latest-v19.x/api/fs.html)
-* [child_process](https://nodejs.org/docs/latest-v19.x/api/child_process.html)
-* [net](https://nodejs.org/docs/latest-v19.x/api/net.html)
+* [Guion de la práctica 11](https://ull-esit-inf-dsi-2223.github.io/prct11-http-express-funko-app/)
+* [Apuntes Servidores Web a través de Express](https://ull-esit-inf-dsi-2223.github.io/nodejs-theory/nodejs-express.html)
+* [Apuntes Peticiones HTTP y patrones callback y callback-chaining](https://ull-esit-inf-dsi-2223.github.io/nodejs-theory/nodejs-http-callback-pattern.html)
