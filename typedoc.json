@@ -1,8 +1,7 @@
 {
   "entryPoints": [
-    "./src/ej-guion/ejercicio-3/funko.ts",
-    "./src/ej-guion/ejercicio-3/yargs.ts",
-    "./src/ej-guion/ejercicio-3/utilities.ts"
+    "./src/ej-guion/funkoapp.ts",
+    "./src/ej-clase/app2.ts", 
   ],
   "out": "./docs" 
 }
