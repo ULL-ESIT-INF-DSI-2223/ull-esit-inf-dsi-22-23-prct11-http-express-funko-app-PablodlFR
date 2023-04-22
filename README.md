@@ -176,7 +176,7 @@ app.delete('/funkos', (req, res) => {
   })
 }); 
 ```
-Primero comprobamos que en el _query_ se han introducido tanto el nombre del usuario como el funko de forma correcta y en caso de que no sea así, se envía un mensaje de error. Si la ruta se ha introducido correctamente, se elimna el funko correspondiente de la colección y se envia un mensaje informando al usuario.
+Primero comprobamos que en el _query_ se han introducido tanto el nombre del usuario como el funko de forma correcta y en caso de que no sea así, se envía un mensaje de error. Si la ruta se ha introducido correctamente, se elimina el funko correspondiente de la colección y se envía un mensaje informando al usuario.
 \
 \
 Se han realizado sus respectivas pruebas:
