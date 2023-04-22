@@ -70,8 +70,6 @@ En este ejercicio seguiremos usando como base la idea de la app de funkos. Consi
 \
 \
 En este informe mostraremos el funcionamiento de cada uno de los verbos HTTP y cómo se llevan a cabo las operaciones anteriormente mencionadas.
-\
-\
 ### Get
 La petición get es utilizada para obtener información de un funko en concreto o para obtener la lista completa. El código desarrollado es el siguiente:
 ```TypeScript
