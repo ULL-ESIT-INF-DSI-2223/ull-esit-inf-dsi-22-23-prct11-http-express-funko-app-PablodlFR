@@ -2,8 +2,6 @@ import "mocha";
 import { expect } from "chai";
 import {request} from 'http';
 
-
-
 describe('error test', () => {
   it('should return an error', () => {
     const req = request('http://localhost:3001/weather', (response) =>{
@@ -40,9 +38,7 @@ describe('error test', () => {
     });
     response.on('end', () => {
       const result = JSON.parse(data);     
-      //if (result.error) {
-        expect(result.status).to.be.equal(404);      
-      //}
+      expect(result.status).to.be.equal(404);  
     });
     });   
   });

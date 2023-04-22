@@ -1,8 +1,5 @@
 import * as express from 'express';
-
 import {request} from 'http';
-
-// const location = process.argv[2];
 
 const app = express();
 

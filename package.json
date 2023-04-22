@@ -6,7 +6,7 @@
   "scripts": {
     "test": "nyc mocha",
     "coverage": "nyc npm test && nyc report --reporter=lcov",
-    "start": "tsc-watch --onSuccess \"node dist/ej-clase/app2.js\"",
+    "start": "tsc-watch --onSuccess \"node dist/ej-guion/funkoapp.js\"",
     "doc": "typedoc"
   },
   "keywords": [],

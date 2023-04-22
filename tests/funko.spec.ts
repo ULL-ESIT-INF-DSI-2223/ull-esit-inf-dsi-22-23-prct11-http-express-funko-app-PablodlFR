@@ -1,29 +1,170 @@
 import "mocha";
 import { expect } from "chai";
-import { Funko } from "../src/ej-guion/ejercicio-3/funko"
-import { Type, Genre} from "../src/ej-guion/ejercicio-3/utilities";
+import {request} from 'http';
 
-const funko1 = new Funko(1, "Conan Edogawa", "Classic Conan Edogawa, 1996", Type.POP, Genre.ANIME, "Detective Conan", 1, true, "Ninguna característica especial", 100);
-const funko2 = new Funko(1, "Conan Edogawa", "Classic Conan Edogawa, 1996", Type.POP, Genre.ANIME, "Detective Conan", 1, true, "Ninguna característica especial", 75);
-const funko3 = new Funko(1, "Conan Edogawa", "Classic Conan Edogawa, 1996", Type.POP, Genre.ANIME, "Detective Conan", 1, true, "Ninguna característica especial", 50);
-const funko4 = new Funko(1, "Conan Edogawa", "Classic Conan Edogawa, 1996", Type.POP, Genre.ANIME, "Detective Conan", 1, true, "Ninguna característica especial", 25)
+describe('get /funkos', function() {
+  it('should return a user error', () => {
+    const url = `http://localhost:3001/funkos?user=pabo&funko=Jodie Starling.json`;
+    request(url, (response) => {
+      let data = '';
+      response.on('data', (chunk) => {
+        data += chunk;
+      });
+      response.on('end', () => {
+        const result = JSON.parse(data);     
+        if (result.error) {
+          expect(result).to.be.equal('El usuario de la colección no es válido.');          
+        }     
+      });
+    });
+  });
+  it('should return a funko error', () => {
+    const url = `http://localhost:3001/funkos?user=pablo&funko=a.json`;
+    request(url, (response) => {
+      let data = '';
+      response.on('data', (chunk) => {
+        data += chunk;
+      });
+      response.on('end', () => {
+        const result = JSON.parse(data);     
+        if (result.error) {
+          expect(result).to.be.equal('El funko de la colección no es válido.');          
+        }     
+      });
+    });
+  });
+  it('should return a funko json', () => {
+    const url = `http://localhost:3001/funkos?user=pablo&funko=Conan Edogawa.json`;
+    request(url, (response) => {
+      let data = '';
+      response.on('data', (chunk) => {
+        data += chunk;
+      });
+      response.on('end', () => {
+        const result = JSON.parse(data);     
+        expect(result.id).to.be.equal(1);          
+      });
+    });    
+  });
+  it('should return a the whole funko list', () => {
+    const url = `http://localhost:3001/funkos?user=pablo`;
+    request(url, (response) => {
+      let data = '';
+      response.on('data', (chunk) => {
+        data += chunk;
+      });
+      response.on('end', () => {
+        const result = JSON.parse(data);     
+        console.log(result.length)
+        expect(result.length).to.be.equal(5);  
+      });
+    });
+  });
+});
 
-const print1 = funko1.print();
-const print2 = funko2.print();
-const print3 = funko3.print();
-const print4 = funko4.print();
+describe('post /funkos', function() {
+  it('should return that a funko was created', () => {
+    const url = `http://localhost:3001/funkos?user=pablo&funko=Jodie Starling.json`;
+    request(url, (response) => {
+      let data = '';
+      response.on('data', (chunk) => {
+        data += chunk;
+      });
+      response.on('end', () => {
+        const result = JSON.parse(data);     
+        expect(result).to.be.equal('Funko creado correctamente.');         
+           
+      });
+    });
+  });
+  it('should return that a funko already exist.', () => {
+    const url = `http://localhost:3001/funkos?user=pablo&funko=Jodie Starling.json`;
+    request(url, (response) => {
+      let data = '';
+      response.on('data', (chunk) => {
+        data += chunk;
+      });
+      response.on('end', () => {
+        const result = JSON.parse(data);     
+        expect(result).to.be.equal('Ya existe ese funko en la colección');         
+           
+      });
+    });
+  });
+});
 
-describe('function print test', () => {
-  it('funko1.print() should return funko1', () => {
-    expect(funko1.print()).to.eql(print1);
+describe('delete /funkos', function() {
+  it('should return that a funko was deleted', () => {
+    const url = `http://localhost:3001/funkos?user=pablo&funko=Jodie Starling.json`;
+    request(url, (response) => {
+      let data = '';
+      response.on('data', (chunk) => {
+        data += chunk;
+      });
+      response.on('end', () => {
+        const result = JSON.parse(data);     
+        expect(result).to.be.equal('Funko eliminado correctamente.');         
+           
+      });
+    });
   });
-  it('funko2.print() should return funko2', () => {
-    expect(funko2.print()).to.eql(print2);
+  it('should return that a error with the collection.', () => {
+    const url = `http://localhost:3001/funkos?user=error&funko=Jodie Starling.json`;
+    request(url, (response) => {
+      let data = '';
+      response.on('data', (chunk) => {
+        data += chunk;
+      });
+      response.on('end', () => {
+        const result = JSON.parse(data);     
+        expect(result).to.be.equal('El usuario de la colección no es válido.');         
+           
+      });
+    });
   });
-  it('funko3.print() should return funko3', () => {
-    expect(funko3.print()).to.eql(print3);
+  it('should return that a error with the funko.', () => {
+    const url = `http://localhost:3001/funkos?user=pablo&funko=error.json`;
+    request(url, (response) => {
+      let data = '';
+      response.on('data', (chunk) => {
+        data += chunk;
+      });
+      response.on('end', () => {
+        const result = JSON.parse(data);     
+        expect(result).to.be.equal('El funko a eliminar no es válido.');         
+           
+      });
+    });
   });
-  it('funko4.print() should return funko4', () => {
-    expect(funko4.print()).to.eql(print4);
+});
+
+describe('patch /funkos', function() {
+  it('should return that a funko error', () => {
+    const url = `http://localhost:3001/funkos?user=pablo&funko=Jodie Starling.json`;
+    request(url, (response) => {
+      let data = '';
+      response.on('data', (chunk) => {
+        data += chunk;
+      });
+      response.on('end', () => {
+        const result = JSON.parse(data);     
+        expect(result).to.be.equal('No se ha encontrado el funko a modificar');         
+           
+      });
+    });
   });
-})
+  it('should return that a funko was modified', () => {
+    const url = `http://localhost:3001/funkos?user=pablo&funko=Jodie Starling.json`;
+    request(url, (response) => {
+      let data = '';
+      response.on('data', (chunk) => {
+        data += chunk;
+      });
+      response.on('end', () => {
+        const result = JSON.parse(data);     
+        expect(result).to.be.equal("Funko modificado correctamente.");         
+           
+      });
+    });
+  });
+});
