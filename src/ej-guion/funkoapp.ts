@@ -8,6 +8,9 @@ module.exports = app;
 
 const collectionPath = path.join('collections/');
 
+/**
+ * Show a single funko or the whole list.
+ */
 app.get('/funkos', (req, res) => {
   const user = req.query.user;
   const funko = req.query.funko;
@@ -43,6 +46,9 @@ app.get('/funkos', (req, res) => {
   }
 });
 
+/**
+ * Add a funko to the collection.
+ */
 app.post('/funkos', express.json(), (req, res) => {
   const user = req.query.user;
   const funko = req.query.funko;
@@ -66,6 +72,9 @@ app.post('/funkos', express.json(), (req, res) => {
 
 });
 
+/**
+ * Delete a funko from the collection.
+ */
 app.delete('/funkos', (req, res) => {
   const user = req.query.user;
   const funko = req.query.funko;
@@ -90,6 +99,9 @@ app.delete('/funkos', (req, res) => {
   })
 });
 
+/**
+ * Modify a funko from the collection.
+ */
 app.patch('/funkos', express.json(), (req, res) => {
   const user = req.query.user;
   const funko = req.query.funko;
@@ -144,7 +156,9 @@ app.patch('/funkos', express.json(), (req, res) => {
   });
 });
 
-
+/**
+ * Show 404 error if access to a wrong path.
+ */
 app.get('*', (_, res) => {
   res.status(404).send();
 });
